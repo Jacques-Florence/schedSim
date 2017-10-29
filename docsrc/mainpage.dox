@@ -1,0 +1,46 @@
+/**
+@mainpage Scheduling simulator
+
+Hello
+
+@tableofcontents
+
+@section intro Introduction
+
+This is a scheduling simulator. It is capable of scheduling both real-time tasks and interactive tasks.
+The simulator is able to simulate the power consumption as well as the resulting temperature of the processor.
+The simulator allows for selecting the task scheduling algorithm as well as the frequency gopvernor policy.
+
+@subsection taskModels Task models
+
+The simulator does not schedule real tasks, but models of task behavior in terms of workload and power consumption. Let's look more closely at those models.
+
+@subsubsection rt Real-Time tasks
+
+Real-time tasks are modelled as an infinite sequence of jobs. Jobs are spawned at a regular interval.
+Each job is defined as a set amount of work, where every job of the same task has the same amount of work. (WCET)
+
+@subsubsection interactive Interactive processes
+
+Interactive tasks are modelled as a sequence of workloads and waiting times. The witing times model the time spent by the task waiting for user input, network, or disk access, etc.
+The duration of waiting time, as well as the aount of work ofeach workload segment is random, following an exponential distribution.
+
+@section install Installation
+
+The scheduler is a set of static libraries.
+To install, go to the src directory and run ./buildScript.sh.
+
+The executable can be found in the folder build/ under the name simulator.
+This will compile the libraries as well as an example use of the simulator.
+
+@section use Using the simulator
+
+@subsection firstSim My first simulation
+@include docmain.cpp
+@subsection conf Configuration file
+
+A configuration file allows to parameterize the execution of the simulator. For instance, it allows selection of scheduling algorithm, frequency governor, running time, ...
+
+The configuration file is necessary. The build script above automatically puts one in the folder of the executable.
+
+*/

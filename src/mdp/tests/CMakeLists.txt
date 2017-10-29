@@ -1,0 +1,15 @@
+
+add_executable(stateSpaceBuilderTest stateSpaceBuilderTest.cpp)
+target_link_libraries(stateSpaceBuilderTest mdp gtest gtest_main)
+add_test(stateSpaceBuilderTest stateSpaceBuilderTest)
+
+add_executable(stateSpaceTest stateSpaceTest.cpp)
+target_link_libraries(stateSpaceTest mdp gtest gtest_main)
+add_test(stateSpaceTest stateSpaceTest)
+
+add_subdirectory(learning/reinforcementLearning/actionValuesFunction)
+add_subdirectory(learning/reinforcementLearning)
+
+
+
+

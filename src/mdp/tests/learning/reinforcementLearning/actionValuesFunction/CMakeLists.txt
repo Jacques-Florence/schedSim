@@ -1,0 +1,8 @@
+
+add_executable(polynomialNetworkTest polynomialNetworkTest.cpp)
+target_link_libraries(polynomialNetworkTest mdp gtest gtest_main)
+add_test(polynomialNetworkTest polynomialNetworkTest)
+
+add_executable(neuralNetworkTest neuralNetworkTest.cpp)
+target_link_libraries(neuralNetworkTest mdp gtest gtest_main utils doublefann)
+#add_test(neuralNetworkTest neuralNetworkTest)

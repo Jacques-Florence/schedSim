@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taskset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<process xsi:type="task">
+		<releaseTime>0.1</releaseTime>
+		<powerCoeff>1</powerCoeff>
+		<priority>1</priority>
+		<period>100</period>
+		<deadline>100</deadline>
+		<wcet>3000</wcet>
+		<durationDistribution xsi:type="none">
+			<bcet>25</bcet>
+			<p>0.5</p>
+		</durationDistribution>
+	</process>
+	<process xsi:type="task">
+		<releaseTime>0.1</releaseTime>
+		<powerCoeff>1.5</powerCoeff>
+		<priority>2</priority>
+		<period>200</period>
+		<deadline>200</deadline>
+		<wcet>6900</wcet>
+		<durationDistribution xsi:type="none">
+			<bcet>100</bcet>
+			<p>0.5</p>
+		</durationDistribution>
+	</process>
+<!--
+	<process xsi:type="task">
+		<releaseTime>0.1</releaseTime>
+		<powerCoeff>1.0</powerCoeff>
+		<priority>1</priority>
+		<period>10</period>
+		<deadline>10</deadline>
+		<wcet>50</wcet>
+		<durationDistribution xsi:type="bernoulli">
+			<bcet>25</bcet>
+			<p>0.5</p>
+		</durationDistribution>
+	</process>
+	<process xsi:type="task">
+		<releaseTime>0.1</releaseTime>
+		<powerCoeff>1.0</powerCoeff>
+		<priority>1</priority>
+		<period>10</period>
+		<deadline>10</deadline>
+		<wcet>200</wcet>
+		<durationDistribution xsi:type="bernoulli">
+			<bcet>100</bcet>
+			<p>0.5</p>
+		</durationDistribution>
+	</process>
+	<process xsi:type="task">
+		<releaseTime>0.1</releaseTime>
+		<powerCoeff>1.0</powerCoeff>
+		<priority>1</priority>
+		<period>30</period>
+		<deadline>30</deadline>
+		<wcet>450</wcet>
+		<durationDistribution xsi:type="bernoulli">
+			<bcet>225</bcet>
+			<p>0.5</p>
+		</durationDistribution>
+	</process>
+	<process xsi:type="task">
+		<releaseTime>0.1</releaseTime>
+		<powerCoeff>1.0</powerCoeff>
+		<priority>1</priority>
+		<period>40</period>
+		<deadline>40</deadline>
+		<wcet>1000</wcet>
+		<durationDistribution xsi:type="bernoulli">
+			<bcet>500</bcet>
+			<p>0.5</p>
+		</durationDistribution>
+	</process>
+-->
+<!--
+	<interactiveProcess>
+		<bursts>
+			<cpuBurst>100</cpuBurst>
+			<ioBurst>250</ioBurst>
+			<cpuBurst>85</cpuBurst>
+			<ioBurst>180</ioBurst>
+			<cpuBurst>43</cpuBurst>
+			<ioBurst>387</ioBurst>
+			<cpuBurst>12</cpuBurst>
+		</bursts>
+		<startTime>0.0</startTime>
+		<powerCoeff>1.0</powerCoeff>
+	</interactiveProcess>
+-->
+</taskset>
+
+
+
+
+
+
+
+
+
+
+

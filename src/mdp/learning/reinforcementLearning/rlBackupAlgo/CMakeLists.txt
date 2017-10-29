@@ -1,0 +1,14 @@
+target_sources(mdp
+	PRIVATE
+	${CMAKE_CURRENT_LIST_DIR}/delayedQLearning.cpp
+	${CMAKE_CURRENT_LIST_DIR}/eligibilityTraceAlgo.cpp
+	${CMAKE_CURRENT_LIST_DIR}/naiveQLambda.cpp
+	${CMAKE_CURRENT_LIST_DIR}/qLearning.cpp
+	${CMAKE_CURRENT_LIST_DIR}/rlBackupAlgorithm.cpp
+	${CMAKE_CURRENT_LIST_DIR}/sarsaLambda.cpp
+	${CMAKE_CURRENT_LIST_DIR}/watkinsQLambda.cpp
+	${CMAKE_CURRENT_LIST_DIR}/neuroQ.cpp
+	PUBLIC
+	${CMAKE_CURRENT_LIST_DIR}/rlBackupAlgorithm.h
+	${CMAKE_CURRENT_LIST_DIR}/eligibilityTraceAlgo.h
+	)

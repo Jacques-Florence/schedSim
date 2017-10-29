@@ -1,0 +1,55 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:annotation>
+		<xsd:documentation xml:lang="en">
+			XML schema for specifying the taskset to be used in the simulation
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:element name="taskset" type="tasksetType" />
+	<xsd:complexType name="tasksetType">
+		<xsd:sequence>
+			<xsd:element name="process" maxOccurs="unbounded" type="processType" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="processType" abstract="true">
+		<xsd:sequence>
+			<xsd:element name="releaseTime" type="xsd:double" />
+			<xsd:element name="powerCoeff" type="xsd:double" />
+			<xsd:element name="priority" type="xsd:double"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="task">
+		<xsd:complexContent>
+			<xsd:extension base="processType">
+				<xsd:sequence>
+					<xsd:element name="period" type="xsd:double" />
+					<xsd:element name="deadline" type="xsd:double" />
+					<xsd:element name="wcet" type="xsd:double" />
+					<xsd:element name="durationDistribution" type="durationDistributionType" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="interactiveProcess">
+	</xsd:complexType>
+	<xsd:complexType name="durationDistributionType" abstract="true" />
+	<xsd:complexType name="deterministic">
+		<xsd:complexContent>
+			<xsd:extension base="durationDistributionType" />
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="bernoulli">
+		<xsd:complexContent>
+			<xsd:extension base="durationDistributionType">
+				<xsd:sequence>
+					<xsd:element name="bcet" type="xsd:string"/>
+					<xsd:element name="p" type="xsd:double"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>
+
+
+
+
+

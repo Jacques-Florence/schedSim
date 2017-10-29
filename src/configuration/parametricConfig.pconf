@@ -1,0 +1,15 @@
+
+[taskSet]
+seed = 1 2 3 4 5 6 7 8 9 10 11 12
+[scheduler]
+discipline = rlDiscipline rmsDiscipline
+[reinforcementLearning]
+alpha = 0.01 0.1 0.2
+[rlDiscipline]
+
+
+
+
+[mdp]
+
+

@@ -1,0 +1,20 @@
+target_sources(scheduler
+	PRIVATE
+		${CMAKE_CURRENT_SOURCE_DIR}/edfDiscipline.cpp
+		${CMAKE_CURRENT_SOURCE_DIR}/fcfsDiscipline.cpp
+		${CMAKE_CURRENT_SOURCE_DIR}/fixedPriorityDiscipline.cpp
+		${CMAKE_CURRENT_SOURCE_DIR}/priorityDiscipline.cpp
+		${CMAKE_CURRENT_SOURCE_DIR}/rmsDiscipline.cpp
+		${CMAKE_CURRENT_SOURCE_DIR}/roundRobinDiscipline.cpp
+	PUBLIC
+		${CMAKE_CURRENT_SOURCE_DIR}/edfDiscipline.h
+		${CMAKE_CURRENT_SOURCE_DIR}/fcfsDiscipline.h
+		${CMAKE_CURRENT_SOURCE_DIR}/fixedPriorityDiscipline.h
+		${CMAKE_CURRENT_SOURCE_DIR}/priorityDiscipline.h
+		${CMAKE_CURRENT_SOURCE_DIR}/rmsDiscipline.h
+		${CMAKE_CURRENT_SOURCE_DIR}/roundRobinDiscipline.h
+		${CMAKE_CURRENT_SOURCE_DIR}/schedulingDiscipline.h
+	)
+install(FILES
+	${CMAKE_CURRENT_LIST_DIR}/schedulingDiscipline.h
+	DESTINATION include/scheduler/discipline)

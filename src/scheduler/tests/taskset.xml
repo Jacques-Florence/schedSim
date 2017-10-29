@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taskset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<process xsi:type="task">
+		<releaseTime>0.0</releaseTime>
+		<powerCoeff>1.2</powerCoeff>
+		<priority>0</priority>
+		<period>10</period>
+		<deadline>8</deadline>
+		<wcet>3</wcet>
+		<durationDistribution xsi:type="bernoulli">
+			<bcet>1</bcet>
+			<p>0.7</p>
+		</durationDistribution>
+	</process>
+	<process xsi:type="task">
+		<releaseTime>0.0</releaseTime>
+		<powerCoeff>1.0</powerCoeff>
+		<priority>0</priority>
+		<period>8</period>
+		<deadline>7</deadline>
+		<wcet>4</wcet>
+		<durationDistribution xsi:type="deterministic"/>
+	</process>
+<!--
+	<interactiveProcess>
+		<bursts>
+			<cpuBurst>100</cpuBurst>
+			<ioBurst>250</ioBurst>
+			<cpuBurst>85</cpuBurst>
+			<ioBurst>180</ioBurst>
+			<cpuBurst>43</cpuBurst>
+			<ioBurst>387</ioBurst>
+			<cpuBurst>12</cpuBurst>
+		</bursts>
+		<startTime>0.0</startTime>
+		<powerCoeff>1.0</powerCoeff>
+	</interactiveProcess>
+-->
+</taskset>
+
+
+
+
+
+
+
+
+
+
+
