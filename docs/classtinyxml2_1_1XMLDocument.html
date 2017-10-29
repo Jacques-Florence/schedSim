@@ -124,11 +124,11 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a1819bd34f540a7304c105a6232d25a1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ebd4647a8af5fc6831b294ac26a150a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetinyxml2.html#a1fbf88509c3ac88c09117b1947414e08">XMLError</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinyxml2_1_1XMLDocument.html#a2ebd4647a8af5fc6831b294ac26a150a">LoadFile</a> (const char *filename)</td></tr>
 <tr class="separator:a2ebd4647a8af5fc6831b294ac26a150a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f1d330fad44c52f3d265338dd2a6dc2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetinyxml2.html#a1fbf88509c3ac88c09117b1947414e08">XMLError</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinyxml2_1_1XMLDocument.html#a5f1d330fad44c52f3d265338dd2a6dc2">LoadFile</a> (<a class="el" href="gmock__output__test__golden_8txt.html#ab12dc6c67167ae2f0af132bdd8c2955e">FILE</a> *)</td></tr>
+<tr class="memitem:a5f1d330fad44c52f3d265338dd2a6dc2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetinyxml2.html#a1fbf88509c3ac88c09117b1947414e08">XMLError</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinyxml2_1_1XMLDocument.html#a5f1d330fad44c52f3d265338dd2a6dc2">LoadFile</a> (FILE *)</td></tr>
 <tr class="separator:a5f1d330fad44c52f3d265338dd2a6dc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a73ac416b4a2aa0952e841220eb3da18f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetinyxml2.html#a1fbf88509c3ac88c09117b1947414e08">XMLError</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinyxml2_1_1XMLDocument.html#a73ac416b4a2aa0952e841220eb3da18f">SaveFile</a> (const char *filename, bool compact=false)</td></tr>
 <tr class="separator:a73ac416b4a2aa0952e841220eb3da18f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b95779479a0035acc67b3a61dfe1b74"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetinyxml2.html#a1fbf88509c3ac88c09117b1947414e08">XMLError</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinyxml2_1_1XMLDocument.html#a8b95779479a0035acc67b3a61dfe1b74">SaveFile</a> (<a class="el" href="gmock__output__test__golden_8txt.html#ab12dc6c67167ae2f0af132bdd8c2955e">FILE</a> *fp, bool compact=false)</td></tr>
+<tr class="memitem:a8b95779479a0035acc67b3a61dfe1b74"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetinyxml2.html#a1fbf88509c3ac88c09117b1947414e08">XMLError</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinyxml2_1_1XMLDocument.html#a8b95779479a0035acc67b3a61dfe1b74">SaveFile</a> (FILE *fp, bool compact=false)</td></tr>
 <tr class="separator:a8b95779479a0035acc67b3a61dfe1b74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adfcff7d0599cd520e9fcbb8891e1b678"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtinyxml2_1_1XMLDocument.html#adfcff7d0599cd520e9fcbb8891e1b678">ProcessEntities</a> () const </td></tr>
 <tr class="separator:adfcff7d0599cd520e9fcbb8891e1b678"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -652,7 +652,7 @@ const char* xmlcstr = printer.CStr();
         <tr>
           <td class="memname"><a class="el" href="namespacetinyxml2.html#a1fbf88509c3ac88c09117b1947414e08">XMLError</a> tinyxml2::XMLDocument::LoadFile </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="gmock__output__test__golden_8txt.html#ab12dc6c67167ae2f0af132bdd8c2955e">FILE</a> *&#160;</td>
+          <td class="paramtype">FILE *&#160;</td>
           <td class="paramname"><em>fp</em></td><td>)</td>
           <td></td>
         </tr>
@@ -946,7 +946,7 @@ doc.Print( &amp;printer );
         <tr>
           <td class="memname"><a class="el" href="namespacetinyxml2.html#a1fbf88509c3ac88c09117b1947414e08">XMLError</a> tinyxml2::XMLDocument::SaveFile </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="gmock__output__test__golden_8txt.html#ab12dc6c67167ae2f0af132bdd8c2955e">FILE</a> *&#160;</td>
+          <td class="paramtype">FILE *&#160;</td>
           <td class="paramname"><em>fp</em>, </td>
         </tr>
         <tr>
@@ -1201,7 +1201,7 @@ doc.Print( &amp;printer );
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 29 2017 11:05:28 for Scheduler by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 29 2017 13:57:29 for Scheduler by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['advancedguide',['AdvancedGuide',['../md_src_googletest_googletest_docs_AdvancedGuide.html',1,'']]]
+  ['deprecated_20list',['Deprecated List',['../deprecated.html',1,'']]]
 ];

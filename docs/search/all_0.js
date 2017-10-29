@@ -1,11 +1,13 @@
 var searchData=
 [
-  ['expectation',['Expectation',['../classtesting_1_1internal_1_1ExpectationBase.html#a86fa3dccdc465d897ee321b74e4ce915',1,'testing::internal::ExpectationBase']]],
-  ['expectationbase',['ExpectationBase',['../classtesting_1_1Expectation.html#a9a45d4d807ed262ab76ab842b8d33761',1,'testing::Expectation']]],
-  ['expectationtester',['ExpectationTester',['../classtesting_1_1internal_1_1ExpectationBase.html#a83859ffda7f75bb8b447063eb53cb8b8',1,'testing::internal::ExpectationBase']]],
-  ['functionmockerbase',['FunctionMockerBase',['../classtesting_1_1Expectation.html#a92066c162835b0d3d2317c9643a87e7e',1,'testing::Expectation']]],
-  ['sequence',['Sequence',['../classtesting_1_1internal_1_1ExpectationBase.html#aeaf43a487a21c0ac1135b094a1561056',1,'testing::internal::ExpectationBase']]],
-  ['typedexpectation',['TypedExpectation',['../classtesting_1_1Expectation.html#a86c4872d3edbede5e8ac148525bc8893',1,'testing::Expectation']]],
-  ['unittest',['UnitTest',['../classtesting_1_1internal_1_1UnitTestImpl.html#a893404438388dec058dc5c02e8f9a014',1,'testing::internal::UnitTestImpl']]],
-  ['untypedfunctionmockerbase',['UntypedFunctionMockerBase',['../classtesting_1_1Expectation.html#a709c2d6bee1223cfbcadc58e884cdb4b',1,'testing::Expectation']]]
+  ['_5fdocument',['_document',['../classtinyxml2_1_1XMLNode.html#a8d2d2be0bb6797625551eb0e91f0ff62',1,'tinyxml2::XMLNode']]],
+  ['_5felementjustopened',['_elementJustOpened',['../classtinyxml2_1_1XMLPrinter.html#ac07169d58b465214a2b1fa306e617c26',1,'tinyxml2::XMLPrinter']]],
+  ['_5ffirstchild',['_firstChild',['../classtinyxml2_1_1XMLNode.html#aa20c91e4213dc930c5bdf420322ca342',1,'tinyxml2::XMLNode']]],
+  ['_5flastchild',['_lastChild',['../classtinyxml2_1_1XMLNode.html#a099b6560ae44ab9edb8453aaf1a3747b',1,'tinyxml2::XMLNode']]],
+  ['_5fnext',['_next',['../classtinyxml2_1_1XMLNode.html#a27e985496b37dd00eb5b9cf59b9e3fb1',1,'tinyxml2::XMLNode']]],
+  ['_5fparent',['_parent',['../classtinyxml2_1_1XMLNode.html#a176dd1c4965c21c366de192164aa2c13',1,'tinyxml2::XMLNode']]],
+  ['_5fprev',['_prev',['../classtinyxml2_1_1XMLNode.html#a9739eb0fb9a1188266052055e7a6bf6b',1,'tinyxml2::XMLNode']]],
+  ['_5fstack',['_stack',['../classtinyxml2_1_1XMLPrinter.html#a99d59e67e084714541bee3ae43884bef',1,'tinyxml2::XMLPrinter']]],
+  ['_5fuserdata',['_userData',['../classtinyxml2_1_1XMLNode.html#ac2d5cc463a6c95ec5907d57a119c56da',1,'tinyxml2::XMLNode']]],
+  ['_5fvalue',['_value',['../classtinyxml2_1_1XMLNode.html#a3ea9884098b8379de2bb5ab3fc85c0fc',1,'tinyxml2::XMLNode']]]
 ];

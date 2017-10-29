@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['anonymousenum',['AnonymousEnum',['../gtest-printers__test_8cc.html#a7a5ee9fe858568a85d80af1312aefb8b',1,'gtest-printers_test.cc']]]
+  ['color',['Color',['../classUtils_1_1Log.html#a10862e359d80ec8792c3689a2f280a93',1,'Utils::Log']]]
 ];

@@ -1,7 +1,24 @@
 var searchData=
 [
-  ['k',['k',['../classtesting_1_1gmock__matchers__test_1_1DerivedClass.html#a5a333063b870d72766f0497c8bb184b5',1,'testing::gmock_matchers_test::DerivedClass']]],
-  ['key',['key',['../classtesting_1_1TestProperty.html#a2c569d47685b89aa64e737fb11df3aba',1,'testing::TestProperty::key()'],['../namespacetesting.html#a6212e76b542f4ffd3079de59092a826a',1,'testing::Key()']]],
-  ['keymatcher',['KeyMatcher',['../classtesting_1_1internal_1_1KeyMatcher.html#a08429692150bf9304b493192abcf16d4',1,'testing::internal::KeyMatcher']]],
-  ['keymatcherimpl',['KeyMatcherImpl',['../classtesting_1_1internal_1_1KeyMatcherImpl.html#a9ad2a218b0366cae9fb09e82347bd8e7',1,'testing::internal::KeyMatcherImpl']]]
+  ['naiveqlambda',['NaiveQLambda',['../classMdp_1_1NaiveQLambda.html#a372c15d362e020ad89db8737c680b9cc',1,'Mdp::NaiveQLambda']]],
+  ['name',['Name',['../classtinyxml2_1_1XMLAttribute.html#a8124fbfd27f57150cc68d8a9207078c3',1,'tinyxml2::XMLAttribute::Name()'],['../classtinyxml2_1_1XMLElement.html#a8bff355472bce2c60d4b50a212bf7f5f',1,'tinyxml2::XMLElement::Name()'],['../classTiXmlAttribute.html#a298a57287d305904ba6bd96ae6f78d3d',1,'TiXmlAttribute::Name()']]],
+  ['nametstr',['NameTStr',['../classTiXmlAttribute.html#a64cee17bceb8232eb0736d26dd082d79',1,'TiXmlAttribute']]],
+  ['neuralnetwork',['NeuralNetwork',['../classMdp_1_1NeuralNetwork.html#a1bbcd208b8f1cbfc026ecafe41ffbac2',1,'Mdp::NeuralNetwork']]],
+  ['neuroq',['NeuroQ',['../classMdp_1_1NeuroQ.html#a38c48d7bf11e07f367496b37b97f55dc',1,'Mdp::NeuroQ']]],
+  ['newcomment',['NewComment',['../classtinyxml2_1_1XMLDocument.html#a386df0befd06aadb5e0cd21381aa955a',1,'tinyxml2::XMLDocument']]],
+  ['newdeclaration',['NewDeclaration',['../classtinyxml2_1_1XMLDocument.html#ae519030c0262fa2daff8993681990e16',1,'tinyxml2::XMLDocument']]],
+  ['newelement',['NewElement',['../classtinyxml2_1_1XMLDocument.html#a3c335a700a43d7c363a393142a23f234',1,'tinyxml2::XMLDocument']]],
+  ['newinteractiveprocess',['NewInteractiveProcess',['../classScheduler_1_1NewInteractiveProcess.html#a7517f5d9746eb2883d90bc83b376a186',1,'Scheduler::NewInteractiveProcess']]],
+  ['newjob',['NewJob',['../classScheduler_1_1NewJob.html#af4ccb01a5e4bf70e9b4df386233d14cc',1,'Scheduler::NewJob']]],
+  ['newprocess',['NewProcess',['../classScheduler_1_1NewProcess.html#a15d044afc558f8fe40149b02e596c0cb',1,'Scheduler::NewProcess']]],
+  ['newtext',['NewText',['../classtinyxml2_1_1XMLDocument.html#acece5de77a0819f2341b08c1e1ed9987',1,'tinyxml2::XMLDocument']]],
+  ['newunknown',['NewUnknown',['../classtinyxml2_1_1XMLDocument.html#a4954f502c5fd7f49de54c3c0c99bb73d',1,'tinyxml2::XMLDocument']]],
+  ['next',['Next',['../classtinyxml2_1_1XMLAttribute.html#a7fd852d6185af90361ec1bc9a7681ad6',1,'tinyxml2::XMLAttribute::Next()'],['../classTiXmlAttribute.html#a776478980776a024f7c2846eec640f65',1,'TiXmlAttribute::Next() const '],['../classTiXmlAttribute.html#a138320aa7793b148ba7e5bd0a0ea4db6',1,'TiXmlAttribute::Next()']]],
+  ['nextsibling',['NextSibling',['../classtinyxml2_1_1XMLNode.html#abba1df37581d89dccc45acdc55750ba2',1,'tinyxml2::XMLNode::NextSibling() const '],['../classtinyxml2_1_1XMLNode.html#aeb7d4dfd8fb924ef86e7cb72183acbac',1,'tinyxml2::XMLNode::NextSibling()'],['../classtinyxml2_1_1XMLHandle.html#aad2eccc7c7c7b18145877c978c3850b5',1,'tinyxml2::XMLHandle::NextSibling()'],['../classtinyxml2_1_1XMLConstHandle.html#a596e248c8014d718f41658502a2e221b',1,'tinyxml2::XMLConstHandle::NextSibling()'],['../classTiXmlNode.html#af854baeba384f5fe9859f5aee03b548e',1,'TiXmlNode::NextSibling() const '],['../classTiXmlNode.html#a4d05f7b1d7b470ac6887edd072d4892a',1,'TiXmlNode::NextSibling()'],['../classTiXmlNode.html#acaf9dc17531ac041f602f9ad579573ea',1,'TiXmlNode::NextSibling(const char *) const '],['../classTiXmlNode.html#a4080bc5cc8a5c139e7cf308669e850fc',1,'TiXmlNode::NextSibling(const char *_next)']]],
+  ['nextsiblingelement',['NextSiblingElement',['../classtinyxml2_1_1XMLNode.html#ab66a0818d72cee86e0952ed2da701f8b',1,'tinyxml2::XMLNode::NextSiblingElement(const char *name=0) const '],['../classtinyxml2_1_1XMLNode.html#af1225412584d4a2126f55e96a12e0ec0',1,'tinyxml2::XMLNode::NextSiblingElement(const char *name=0)'],['../classtinyxml2_1_1XMLHandle.html#ae41d88ee061f3c49a081630ff753b2c5',1,'tinyxml2::XMLHandle::NextSiblingElement()'],['../classtinyxml2_1_1XMLConstHandle.html#a0d50f71f0d4199768508f039426e2b1f',1,'tinyxml2::XMLConstHandle::NextSiblingElement()'],['../classTiXmlNode.html#a7667217e269e0da01d1f82aee94d1a3d',1,'TiXmlNode::NextSiblingElement() const '],['../classTiXmlNode.html#a1b211cb5034655a04358e0e2f6fc5010',1,'TiXmlNode::NextSiblingElement()'],['../classTiXmlNode.html#a3d7897999f99cf4870dd59df6331d7ff',1,'TiXmlNode::NextSiblingElement(const char *) const '],['../classTiXmlNode.html#a6e1ac6b800e18049bc75e9f8e63a8e5f',1,'TiXmlNode::NextSiblingElement(const char *_next)']]],
+  ['nochildren',['NoChildren',['../classtinyxml2_1_1XMLNode.html#a96afe34a9ccd0ed4c0cff32beb42cc6c',1,'tinyxml2::XMLNode::NoChildren()'],['../classTiXmlNode.html#aeed21ad30630ef6e7faf096127edc9f3',1,'TiXmlNode::NoChildren()']]],
+  ['node',['Node',['../classTiXmlHandle.html#ab44b723a8dc9af72838a303c079d0376',1,'TiXmlHandle']]],
+  ['nolearning',['NoLearning',['../classMdp_1_1NoLearning.html#a98d911443ccee2d2821b622b55abcff1',1,'Mdp::NoLearning']]],
+  ['notifyupdateneeded',['notifyUpdateNeeded',['../classMdp_1_1NeuroQ.html#a3fb402642846c89505221e8d4eab4bd7',1,'Mdp::NeuroQ::notifyUpdateNeeded()'],['../classMdp_1_1RlBackupAlgorithm.html#aa339e4826ad58246657f9192b53c31ca',1,'Mdp::RlBackupAlgorithm::notifyUpdateNeeded()']]],
+  ['nulllineendings',['NullLineEndings',['../xmltest_8cpp.html#ae2b20b519a09f204f4579b9d3f63b158',1,'xmltest.cpp']]]
 ];
