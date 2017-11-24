@@ -77,12 +77,51 @@ At time 5.0, task with pid 0 terminates.
 Whenever the task scheduler is invoked, the content of the ready queue is displayed.
 It comprises the pid of the task as well as its amount of work.
 It also prints the task currently being executed (or about to be).
+
 @subsection conf Configuration file
 
 A configuration file allows to parameterize the execution of the simulator. For instance, it allows selection of scheduling algorithm, frequency governor, running time, ...
 
 The configuration file is necessary. The build script above automatically puts one in the folder of the executable.
 
+@subsection taskgen taskset generation
 
+@subsubsection hardcoded programatically
+The first way to specify the taskset to simulate is to directly write it in C++ code, as we did in the first example.
+
+@subsubsection random random
+
+Another way to generate tasksets is to do it randomly.
+First, make sure to replace the createRealTimeTask lines in the main function with the following line:
+\code {C++}
+simulator.initializeTaskSet();
+\endcode
+To generate the taskset randomly, you will also need to set up the configuration file as follows:
+In the [taskSet] section, the tasksetSource entry should be set to random, and some values need to be specified:
+\code
+[taskSet]
+tasksetSource = random
+utilization = 0.7
+nbOfTasks = 3
+seed = 1234
+priorities = no
+powerSpan = 1.0
+\endcode
+the utilization field lets you specify the processor utilization of the task set.
+nbOfTasks is the number of tasks.
+The simulator will then generate a taskset where tasks have random periods and wcet.
+Some other fields are required. The seed is the seed of the random generator that generates the taskset.
+This allows you to generate a different taskset by changing the seed value.
+By setting the priorities field to yes, the tasks will each have a different priority.
+This characteristic is used by some scheduling algorithms.
+Finally, powerSpan lets you specify the span of instantaneous power consumption of the different tasks (more on that later).
+
+
+@subsubsection xml XML
+
+Tasksets can also be specified via a configuration file. This allows tasksets to be changed without having to recompile the simulator.
+Also, they provide a structured way to store or transfer taskset data.
+
+An example of XML taskset is in the file xml/taskset.xml
 
 */
