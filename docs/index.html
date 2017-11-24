@@ -92,6 +92,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li class="level2"><a href="#taskgen">taskset generation</a><ul><li class="level3"><a href="#hardcoded">programatically</a></li>
 <li class="level3"><a href="#random">random</a></li>
 <li class="level3"><a href="#xml">XML</a></li>
+<li class="level3"><a href="#distribution">Task execution time distribution</a></li>
 </ul>
 </li>
 <li class="level2"><a href="#disciplines">Scheduling disciplines</a></li>
@@ -102,7 +103,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="textblock"><h1><a class="anchor" id="intro"></a>
 Introduction</h1>
-<p>This is a scheduling simulator. It is capable of scheduling both real-time tasks and interactive tasks. The simulator is able to simulate the power consumption as well as the resulting temperature of the processor. The simulator allows for selecting the task scheduling algorithm as well as the frequency gopvernor policy.</p>
+<p>This is a scheduling simulator. It is capable of scheduling both real-time tasks and interactive tasks. The simulator is able to simulate the power consumption as well as the resulting temperature of the processor. The simulator allows for selecting the task scheduling algorithm as well as the frequency governor policy.</p>
 <h2><a class="anchor" id="taskModels"></a>
 Task models</h2>
 <p>The simulator does not schedule real tasks, but models of task behavior in terms of workload and power consumption. Let's look more closely at those models.</p>
@@ -114,9 +115,9 @@ Interactive processes</h3>
 <p>Interactive tasks are modelled as a sequence of workloads and waiting times. The waiting times model the time spent by the task waiting for user input, network, or disk access, etc. The duration of waiting time, as well as the amount of work of each workload segment is random, following an exponential distribution.</p>
 <h1><a class="anchor" id="install"></a>
 Installation</h1>
-<p>The scheduler is a set of static libraries. To install, go to the src directory and run ./buildScript.sh.</p>
-<p>The executable can be found in the folder build/ under the name simulator. This will compile the libraries as well as an example use of the simulator.</p>
-<h1><a class="anchor" id="use"></a>
+<p>The scheduler is a set of static libraries. To install, go to the src directory and run ./buildScript.sh. This will compile the libraries as well as an example use of the simulator.</p>
+<p>to run the simulator, go to the simulator/ directory and run the command:</p>
+<div class="fragment"><div class="line">./bin/SchedulingSimulator configuration/configuration.conf</div></div><!-- fragment --><h1><a class="anchor" id="use"></a>
 Using the simulator</h1>
 <h2><a class="anchor" id="firstSim"></a>
 My first simulation</h2>
@@ -146,6 +147,21 @@ random</h3>
 XML</h3>
 <p>Tasksets can also be specified via a configuration file. This allows tasksets to be changed without having to recompile the simulator. Also, they provide a structured way to store or transfer taskset data.</p>
 <p>An example of XML taskset is in the file xml/taskset.xml</p>
+<h3><a class="anchor" id="distribution"></a>
+Task execution time distribution</h3>
+<p>In our first example, we had deterministic tasks: their execution time was always equal to their WCET. It is possible to specify a random task duration, no matter what task generation process (programatically, random, xml) you use. In the [scheduler] section of the configuration file, specify the distribution of task duration in the 'distribution' field. The possible values are:</p>
+<ul>
+<li><code>none</code> the task duration is deterministic and equal to its WCET</li>
+<li><code>deterministic</code> same as <code>none</code> </li>
+<li><code>uniform</code> the task diration follows a uniform random variable. The duration will be anywhere between BCET and WCET.</li>
+<li><code>bernoulli</code> <code></code> </li>
+</ul>
+<p>the task duration follows a Bernoulli distribution: it will be equal to WCET with probability </p>
+<p>and BCET with probability 1 - </p>
+<p>. </p>
+<p>needs to be a number between 0 and 1.</p>
+<p>For programatically generated tasksets, the BCET is specified in the <code>createRealTimeTask</code> function as an optional parameter. See function <code><a class="el" href="classScheduler_1_1SchedulingSimulator.html#a74942c01db4b56caec3c0676ee49c507" title="creates a new real-time task event and add it to the event scheduling queue ">Scheduler::SchedulingSimulator::createRealTimeTask()</a></code> </p>
+<p>For random-generated tasksets, random duration is not yet fully supported.</p>
 <h2><a class="anchor" id="disciplines"></a>
 Scheduling disciplines</h2>
 <p>to be continued...</p>
@@ -155,7 +171,7 @@ Reports</h2>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 24 2017 15:07:17 for Scheduler by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 24 2017 15:45:28 for Scheduler by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

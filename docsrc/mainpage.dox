@@ -7,7 +7,7 @@
 
 This is a scheduling simulator. It is capable of scheduling both real-time tasks and interactive tasks.
 The simulator is able to simulate the power consumption as well as the resulting temperature of the processor.
-The simulator allows for selecting the task scheduling algorithm as well as the frequency gopvernor policy.
+The simulator allows for selecting the task scheduling algorithm as well as the frequency governor policy.
 
 @subsection taskModels Task models
 
@@ -27,9 +27,13 @@ The duration of waiting time, as well as the amount of work of each workload seg
 
 The scheduler is a set of static libraries.
 To install, go to the src directory and run ./buildScript.sh.
-
-The executable can be found in the folder build/ under the name simulator.
 This will compile the libraries as well as an example use of the simulator.
+
+to run the simulator, go to the simulator/ directory and run the command:
+
+\code
+./bin/SchedulingSimulator configuration/configuration.conf
+\endcode
 
 @section use Using the simulator
 
@@ -118,6 +122,23 @@ Also, they provide a structured way to store or transfer taskset data.
 
 An example of XML taskset is in the file xml/taskset.xml
 
+@subsubsection distribution Task execution time distribution
+
+In our first example, we had deterministic tasks: their execution time was always equal to their WCET.
+It is possible to specify a random task duration, no matter what task generation process (programatically, random, xml) you use.
+In the [scheduler] section of the configuration file, specify the distribution of task duration in the 'distribution' field.
+The possible values are:
+
+- \c none the task duration is deterministic and equal to its WCET
+- \c deterministic same as \c none
+- \c uniform the task diration follows a uniform random variable. The duration will be anywhere between BCET and WCET.
+- \c bernoulli \c <p> the task duration follows a Bernoulli distribution: it will be equal to WCET with probability <p> and BCET with probability 1 - <p>.
+<p> needs to be a number between 0 and 1.
+
+For programatically generated tasksets, the BCET is specified in the \c createRealTimeTask function as an optional parameter.
+See function \c Scheduler::SchedulingSimulator::createRealTimeTask()
+
+For random-generated tasksets, random duration is not yet fully supported.
 
 @subsection disciplines Scheduling disciplines
 
