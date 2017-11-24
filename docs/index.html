@@ -89,12 +89,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li class="level1"><a href="#install">Installation</a></li>
 <li class="level1"><a href="#use">Using the simulator</a><ul><li class="level2"><a href="#firstSim">My first simulation</a></li>
-<li class="level2"><a href="#conf">Configuration file</a></li>
 <li class="level2"><a href="#taskgen">taskset generation</a><ul><li class="level3"><a href="#hardcoded">programatically</a></li>
 <li class="level3"><a href="#random">random</a></li>
 <li class="level3"><a href="#xml">XML</a></li>
 </ul>
 </li>
+<li class="level2"><a href="#disciplines">Scheduling disciplines</a></li>
+<li class="level2"><a href="#reports">Reports</a></li>
 </ul>
 </li>
 </ul>
@@ -133,10 +134,6 @@ My first simulation</h2>
 <p>Once the main file written, we can build the the simulator (see above). We can now edit the configuration file, located in configuration/configuration.conf</p>
 <div class="fragment"><div class="line">[global]</div><div class="line">reportsFolder = .</div><div class="line">record = yes</div><div class="line"></div><div class="line">[scheduler]</div><div class="line">runningTime = 600</div><div class="line">discipline = rmsDiscipline</div><div class="line">governor = minGovernor</div><div class="line">temperatureModel = simpleTemperatureModel</div><div class="line">randomSeed = 1</div><div class="line">distribution = none</div><div class="line"></div><div class="line">logTemperature = yes</div><div class="line">onlyLogTempAfterRatio = 0.0</div><div class="line">thermalResistance = 2.0</div><div class="line">thermalCapacitance = 20.0</div><div class="line"></div><div class="line">logAging = no</div><div class="line"></div><div class="line">[taskSet]</div><div class="line">tasksetSource = compiled</div><div class="line"></div><div class="line"></div></div><!-- fragment --><p> The most important field is the kind of task scheduler to use. In this case, it is rate-monotonic scheduling (rmsScheduler).</p>
 <p>When executing the simulation with the -verbose option, a log is displayed: </p><div class="fragment"><div class="line"> -0.000: Starting processor</div><div class="line">  0.000:  Task  0:0: New job</div><div class="line">    Scheduler invoked. Ready queue contains 0(15) </div><div class="line">    Currently running process number 0:0</div><div class="line">  0.000:  Task  1:0: New job</div><div class="line">    Scheduler invoked. Ready queue contains 1(20) </div><div class="line">  5.000:  Task  0:0: Task terminates</div><div class="line">    Processor sleeping</div><div class="line">    Scheduler invoked. Ready queue contains 1(20) </div><div class="line">    Currently running process number 1:0</div><div class="line"> 11.000:  Task  1:0: Task terminates</div><div class="line">    Processor sleeping</div><div class="line">    Scheduler invoked. Ready queue contains nothing</div><div class="line"> 15.000:  Task  0:1: New job</div><div class="line">    Scheduler invoked. Ready queue contains 0(30) </div><div class="line">    Currently running process number 0:1</div><div class="line"> 20.000:  Task  1:1: New job</div><div class="line">    Scheduler invoked. Ready queue contains 1(40) </div><div class="line"> 20.000:  Task  0:1: Task terminates</div><div class="line">    Processor sleeping</div><div class="line">    Scheduler invoked. Ready queue contains 1(40) </div><div class="line">    Currently running process number 1:1</div><div class="line"> 26.000:  Task  1:1: Task terminates</div><div class="line">    Processor sleeping</div><div class="line">    Scheduler invoked. Ready queue contains nothing</div><div class="line"> 30.000:  Task  0:2: New job</div><div class="line">    Scheduler invoked. Ready queue contains 0(45) </div><div class="line">    Currently running process number 0:2</div><div class="line"> 35.000:  Task  0:2: Task terminates</div><div class="line">    Processor sleeping</div><div class="line">    Scheduler invoked. Ready queue contains nothing</div><div class="line"> 40.000:  Task  1:2: New job</div><div class="line">    Scheduler invoked. Ready queue contains 1(60) </div><div class="line">    Currently running process number 1:2</div></div><!-- fragment --><p> it contains the list of all events, along with the time at which they occured. For instance, both tasks spawn a new job at time 0.0. At time 5.0, task with pid 0 terminates. Whenever the task scheduler is invoked, the content of the ready queue is displayed. It comprises the pid of the task as well as its amount of work. It also prints the task currently being executed (or about to be).</p>
-<h2><a class="anchor" id="conf"></a>
-Configuration file</h2>
-<p>A configuration file allows to parameterize the execution of the simulator. For instance, it allows selection of scheduling algorithm, frequency governor, running time, ...</p>
-<p>The configuration file is necessary. The build script above automatically puts one in the folder of the executable.</p>
 <h2><a class="anchor" id="taskgen"></a>
 taskset generation</h2>
 <h3><a class="anchor" id="hardcoded"></a>
@@ -144,15 +141,21 @@ programatically</h3>
 <p>The first way to specify the taskset to simulate is to directly write it in C++ code, as we did in the first example.</p>
 <h3><a class="anchor" id="random"></a>
 random</h3>
-<p>Another way to generate tasksets is to do it randomly. First, make sure to replace the createRealTimeTask lines in the main function with the following line: </p><div class="fragment"><div class="line"> {C++}</div><div class="line">simulator.initializeTaskSet();</div></div><!-- fragment --><p> To generate the taskset randomly, you will also need to set up the configuration file as follows: In the [taskSet] section, the tasksetSource entry should be set to random, and some values need to be specified: </p><div class="fragment"><div class="line">[taskSet]</div><div class="line">tasksetSource = random</div><div class="line">utilization = 0.7</div><div class="line">nbOfTasks = 3</div><div class="line">seed = 1234</div><div class="line">priorities = no</div><div class="line">powerSpan = 1.0</div></div><!-- fragment --><p> the utilization field lets you specify the processor utilization of the task set. nbOfTasks is the number of tasks. The simulator will then generate a taskset where tasks have random periods and wcet. Some other fields are required. The seed is the seed of the random generator that generates the taskset. This allows you to generate a different taskset by changing the seed value. By setting the priorities field to yes, the tasks will each have a different priority. This characteristic is used by some scheduling algorithms. Finally, powerSpan lets you specify the span of instantaneous power consumption of the different tasks (more on that later).</p>
+<p>Another way to generate tasksets is to do it randomly. First, make sure to replace the createRealTimeTask lines in the main function with the following line: </p><div class="fragment"><div class="line">simulator.initializeTaskSet();</div></div><!-- fragment --><p> To generate the taskset randomly, you will also need to set up the configuration file as follows: In the [taskSet] section, the tasksetSource entry should be set to random, and some values need to be specified: </p><div class="fragment"><div class="line">[taskSet]</div><div class="line">tasksetSource = random</div><div class="line">utilization = 0.7</div><div class="line">nbOfTasks = 3</div><div class="line">seed = 1234</div><div class="line">priorities = no</div><div class="line">powerSpan = 1.0</div></div><!-- fragment --><p> the utilization field lets you specify the processor utilization of the task set. nbOfTasks is the number of tasks. The simulator will then generate a taskset where tasks have random periods and wcet. Some other fields are required. The seed is the seed of the random generator that generates the taskset. This allows you to generate a different taskset by changing the seed value. By setting the priorities field to yes, the tasks will each have a different priority. This characteristic is used by some scheduling algorithms. Finally, powerSpan lets you specify the span of instantaneous power consumption of the different tasks (more on that later).</p>
 <h3><a class="anchor" id="xml"></a>
 XML</h3>
 <p>Tasksets can also be specified via a configuration file. This allows tasksets to be changed without having to recompile the simulator. Also, they provide a structured way to store or transfer taskset data.</p>
-<p>An example of XML taskset is in the file xml/taskset.xml </p>
+<p>An example of XML taskset is in the file xml/taskset.xml</p>
+<h2><a class="anchor" id="disciplines"></a>
+Scheduling disciplines</h2>
+<p>to be continued...</p>
+<h2><a class="anchor" id="reports"></a>
+Reports</h2>
+<p>to be continued... </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 24 2017 14:59:13 for Scheduler by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 24 2017 15:04:19 for Scheduler by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>

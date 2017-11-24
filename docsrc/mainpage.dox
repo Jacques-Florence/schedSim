@@ -78,12 +78,6 @@ Whenever the task scheduler is invoked, the content of the ready queue is displa
 It comprises the pid of the task as well as its amount of work.
 It also prints the task currently being executed (or about to be).
 
-@subsection conf Configuration file
-
-A configuration file allows to parameterize the execution of the simulator. For instance, it allows selection of scheduling algorithm, frequency governor, running time, ...
-
-The configuration file is necessary. The build script above automatically puts one in the folder of the executable.
-
 @subsection taskgen taskset generation
 
 @subsubsection hardcoded programatically
@@ -93,7 +87,7 @@ The first way to specify the taskset to simulate is to directly write it in C++ 
 
 Another way to generate tasksets is to do it randomly.
 First, make sure to replace the createRealTimeTask lines in the main function with the following line:
-\code {C++}
+\code {.cpp}
 simulator.initializeTaskSet();
 \endcode
 To generate the taskset randomly, you will also need to set up the configuration file as follows:
@@ -124,4 +118,12 @@ Also, they provide a structured way to store or transfer taskset data.
 
 An example of XML taskset is in the file xml/taskset.xml
 
+
+@subsection disciplines Scheduling disciplines
+
+to be continued...
+
+@subsection reports Reports
+
+to be continued...
 */
