@@ -7,7 +7,6 @@ target_sources(mdp
 	${CMAKE_CURRENT_LIST_DIR}/rlBackupAlgorithm.cpp
 	${CMAKE_CURRENT_LIST_DIR}/sarsaLambda.cpp
 	${CMAKE_CURRENT_LIST_DIR}/watkinsQLambda.cpp
-	${CMAKE_CURRENT_LIST_DIR}/neuroQ.cpp
 	PUBLIC
 	${CMAKE_CURRENT_LIST_DIR}/rlBackupAlgorithm.h
 	${CMAKE_CURRENT_LIST_DIR}/eligibilityTraceAlgo.h

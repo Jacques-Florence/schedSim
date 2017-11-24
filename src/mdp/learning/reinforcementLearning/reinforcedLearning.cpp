@@ -32,14 +32,12 @@
 #include "rlBackupAlgo/delayedQLearning.h"
 #include "rlBackupAlgo/naiveQLambda.h"
 #include "rlBackupAlgo/watkinsQLambda.h"
-#include "rlBackupAlgo/neuroQ.h"
 
 #include "actionSelection/actionSelectionStrategy.h"
 #include "actionSelection/epsilonGreedy.h"
 #include "actionSelection/gibbsActionSelection.h"
 
 #include "actionValuesFunction/tabularActionValues.h"
-#include "actionValuesFunction/neuralNetwork.h"
 
 using namespace Mdp;
 
@@ -170,12 +168,6 @@ RlBackupAlgorithm *ReinforcedLearning::getBackupAlgorithm()
 	{
 		actionValues = new TabularActionValues(context);
 		return new NaiveQLambda(context, dynamic_cast<TabularActionValues*>(actionValues));
-	}
-	if (!str.compare(NeuroQ::configKey))
-	{
-		int hiddenUnits = context->conf->getIntValue("reinforcementLearning", "hiddenUnits");
-		actionValues = new NeuralNetwork(context, context->stateSpace->getNbOfDimensions(), hiddenUnits, context->actionSpace->size());
-		return new NeuroQ(context, dynamic_cast<NeuralNetwork*>(actionValues));
 	}
 	throw std::runtime_error("Reinforcement Learning algorithm lookup failed");
 }
