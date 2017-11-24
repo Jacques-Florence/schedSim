@@ -1,8 +1,6 @@
 /**
 @mainpage Scheduling simulator
 
-Hello
-
 @tableofcontents
 
 @section intro Introduction
@@ -22,8 +20,8 @@ Each job is defined as a set amount of work, where every job of the same task ha
 
 @subsubsection interactive Interactive processes
 
-Interactive tasks are modelled as a sequence of workloads and waiting times. The witing times model the time spent by the task waiting for user input, network, or disk access, etc.
-The duration of waiting time, as well as the aount of work ofeach workload segment is random, following an exponential distribution.
+Interactive tasks are modelled as a sequence of workloads and waiting times. The waiting times model the time spent by the task waiting for user input, network, or disk access, etc.
+The duration of waiting time, as well as the amount of work of each workload segment is random, following an exponential distribution.
 
 @section install Installation
 
@@ -37,6 +35,7 @@ This will compile the libraries as well as an example use of the simulator.
 
 @subsection firstSim My first simulation
 @include docmain.cpp
+
 @subsection conf Configuration file
 
 A configuration file allows to parameterize the execution of the simulator. For instance, it allows selection of scheduling algorithm, frequency governor, running time, ...
