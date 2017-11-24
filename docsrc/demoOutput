@@ -1,0 +1,34 @@
+ -0.000: Starting processor
+  0.000:  Task  0:0: New job
+    Scheduler invoked. Ready queue contains 0(15) 
+    Currently running process number 0:0
+  0.000:  Task  1:0: New job
+    Scheduler invoked. Ready queue contains 1(20) 
+  5.000:  Task  0:0: Task terminates
+    Processor sleeping
+    Scheduler invoked. Ready queue contains 1(20) 
+    Currently running process number 1:0
+ 11.000:  Task  1:0: Task terminates
+    Processor sleeping
+    Scheduler invoked. Ready queue contains nothing
+ 15.000:  Task  0:1: New job
+    Scheduler invoked. Ready queue contains 0(30) 
+    Currently running process number 0:1
+ 20.000:  Task  1:1: New job
+    Scheduler invoked. Ready queue contains 1(40) 
+ 20.000:  Task  0:1: Task terminates
+    Processor sleeping
+    Scheduler invoked. Ready queue contains 1(40) 
+    Currently running process number 1:1
+ 26.000:  Task  1:1: Task terminates
+    Processor sleeping
+    Scheduler invoked. Ready queue contains nothing
+ 30.000:  Task  0:2: New job
+    Scheduler invoked. Ready queue contains 0(45) 
+    Currently running process number 0:2
+ 35.000:  Task  0:2: Task terminates
+    Processor sleeping
+    Scheduler invoked. Ready queue contains nothing
+ 40.000:  Task  1:2: New job
+    Scheduler invoked. Ready queue contains 1(60) 
+    Currently running process number 1:2

@@ -28,8 +28,6 @@ var searchData=
   ['_7emempoolt',['~MemPoolT',['../classtinyxml2_1_1MemPoolT.html#a5fa4fee934a3df2b9e74282244d78390',1,'tinyxml2::MemPoolT']]],
   ['_7emingovernor',['~MinGovernor',['../classScheduler_1_1MinGovernor.html#adea03f5cc76000cb06534adf80899b99',1,'Scheduler::MinGovernor']]],
   ['_7emissratedimension',['~MissRateDimension',['../classMdpGov_1_1MissRateDimension.html#a32b9c8956f7ec8673a5ae04b901fe87e',1,'MdpGov::MissRateDimension']]],
-  ['_7eneuralnetwork',['~NeuralNetwork',['../classMdp_1_1NeuralNetwork.html#a65475a7d7b05d302392333302626b2f8',1,'Mdp::NeuralNetwork']]],
-  ['_7eneuroq',['~NeuroQ',['../classMdp_1_1NeuroQ.html#a47b5ec76761a499702bf8362350eb10c',1,'Mdp::NeuroQ']]],
   ['_7enewprocess',['~NewProcess',['../classScheduler_1_1NewProcess.html#a1fe01d296403cb1e6f7746b0387bf610',1,'Scheduler::NewProcess']]],
   ['_7eprioritydiscipline',['~PriorityDiscipline',['../classScheduler_1_1PriorityDiscipline.html#a064fcafed41e6f96d56eb83269f459f4',1,'Scheduler::PriorityDiscipline']]],
   ['_7eprioritystate',['~PriorityState',['../classMdp_1_1PriorityState.html#a9ca2d0a2f4240f1694f047bffe818209',1,'Mdp::PriorityState']]],

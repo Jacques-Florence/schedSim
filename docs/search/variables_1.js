@@ -15,6 +15,5 @@ var searchData=
   ['alpha0',['alpha0',['../classMdp_1_1RlBackupAlgorithm.html#ac0cb659423d506a2a71651864c069175',1,'Mdp::RlBackupAlgorithm']]],
   ['alphacounter',['alphaCounter',['../classMdp_1_1RlBackupAlgorithm.html#ae4c9ebec4582f608edeaddfb1f8bf3cb',1,'Mdp::RlBackupAlgorithm']]],
   ['alphadecayspeed',['alphaDecaySpeed',['../classMdp_1_1ReinforcedLearning.html#a7187188309da76cb1159bda9e0561a41',1,'Mdp::ReinforcedLearning::alphaDecaySpeed()'],['../classMdp_1_1RlBackupAlgorithm.html#a301961b08a3adb0808a6ed932fdb97c7',1,'Mdp::RlBackupAlgorithm::alphaDecaySpeed()']]],
-  ['ann',['ann',['../classMdp_1_1NeuralNetwork.html#a66089399d91cae90404f5ff76d5b6da9',1,'Mdp::NeuralNetwork']]],
   ['avg',['avg',['../namespacereward.html#a68e12fb01c2eb9f07d1d5e97d5b24f5e',1,'reward']]]
 ];

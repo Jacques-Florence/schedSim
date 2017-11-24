@@ -34,12 +34,55 @@ This will compile the libraries as well as an example use of the simulator.
 @section use Using the simulator
 
 @subsection firstSim My first simulation
-@include docmain.cpp
+As a first example, let's look at a very simple real-time scheduliong problem.
+Let's consider two tasks. The first has a period of 15 and a worst-case execution time of 5.
+The second task has a period of 20 and a wcet of 6.
+Both tasks are assumed to be deterministic,
+so that their execution time is always equal to their wcet.
+We want to schedule this taskset under rate monotonic scheduling.
 
+Let's take a look at the main function file:
+@include docmain.cpp
+The first step is to create a SchedulerConfiguration object,
+initialized from a configuration file.
+Then, we create a SchedulingSimulator object. This is the main object of the simulator.
+Next, we can create the tasks. The easiest way is via the createRealTimeTask with four arguments:
+
+- The time at which the task will first be ready
+- The period at which the task repeats itself
+- The amount of work to be done. Note that this is not a time duration.
+The simulator is capable of varying frequency, so the time taken to complete a task is not fixed.
+But for the moment, we will keep a constant frequency, the minimum frequency of the processor.
+Therefore, we can specify the amount of work corresponding to a given time duration by multiplying the duration by the processor frequency.
+- The deadline. Let's make this equal to the period of the task.
+
+Next, we specify the time at which the processor should turn on. This value should be less than the starting time of the tasks.
+
+Then, the function endSimulation() is used top specify at what time the simulation should end.
+In this case, we get the value from the configuration file.
+
+finally, we start the simulation.
+
+Once the main file written, we can build the the simulator (see above).
+We can now edit the configuration file, located in configuration/configuration.conf
+
+@include configuration.conf
+The most important field is the kind of task scheduler to use. In this case, it is rate-monotonic scheduling (rmsScheduler).
+
+When executing the simulation with the -verbose option, a log is displayed:
+@include demoOutput
+it contains the list of all events, along with the time at which they occured.
+For instance, both tasks spawn a new job at time 0.0.
+At time 5.0, task with pid 0 terminates.
+Whenever the task scheduler is invoked, the content of the ready queue is displayed.
+It comprises the pid of the task as well as its amount of work.
+It also prints the task currently being executed (or about to be).
 @subsection conf Configuration file
 
 A configuration file allows to parameterize the execution of the simulator. For instance, it allows selection of scheduling algorithm, frequency governor, running time, ...
 
 The configuration file is necessary. The build script above automatically puts one in the folder of the executable.
+
+
 
 */

@@ -1,8 +1,8 @@
 var searchData=
 [
   ['complexaction',['ComplexAction',['../classMdp_1_1ComplexAction.html',1,'Mdp']]],
-  ['configuration',['Configuration',['../classRlScheduler_1_1Configuration.html',1,'RlScheduler']]],
   ['configuration',['Configuration',['../classUtils_1_1Configuration.html',1,'Utils']]],
+  ['configuration',['Configuration',['../classRlScheduler_1_1Configuration.html',1,'RlScheduler']]],
   ['configurationtest',['ConfigurationTest',['../classConfigurationTest.html',1,'']]],
   ['conservativegovernor',['ConservativeGovernor',['../classScheduler_1_1ConservativeGovernor.html',1,'Scheduler']]],
   ['constraintlist',['ConstraintList',['../structMdp_1_1ConstraintList.html',1,'Mdp']]],

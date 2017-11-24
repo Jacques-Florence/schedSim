@@ -77,13 +77,19 @@ void TaskScheduler::scheduleTask(TriggeringEvent trigger)
 		proc->getRunningTask(), deadlineMisses);
 	
 	if (proc->isRunning(nextTask))
+	{
 		return;
+	}
 	
-	if (discipline->preempts(trigger)) 
+	if (discipline->preempts(trigger))
+	{
 		putRunningTaskBackToReadyQueue(proc->getRunningTask());
-	if (!proc->powered()) /*Just to be sure.
-	This should not happen normally.*/
+	}
+	if (!proc->powered()) /*Just to be sure. Can happen if proc is turned on at the exact same time when task gets ready*/
+	{
 		return;
+	}
+
 	proc->setRunning(nextTask);
 
 	if (nextTask != nullptr)
@@ -191,9 +197,8 @@ void TaskScheduler::printInvocation()
 #endif
 }
 
-void TaskScheduler::printRunningProcess(std::shared_ptr<Process> /*runningTask*/)
+void TaskScheduler::printRunningProcess(std::shared_ptr<Process> runningTask)
 {
-#ifdef PRINT
 	Utils::Log log;
 	if (runningTask != nullptr)
 	{
@@ -210,7 +215,6 @@ void TaskScheduler::printRunningProcess(std::shared_ptr<Process> /*runningTask*/
 		log << Utils::Log::Color::blue;
 		log << "    Processor sleeping" << Utils::Log::Color::normal << "\n";
 	}
-#endif
 }
 
 

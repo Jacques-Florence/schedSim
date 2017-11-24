@@ -3,8 +3,6 @@ var searchData=
   ['naiveqlambda',['NaiveQLambda',['../classMdp_1_1NaiveQLambda.html#a372c15d362e020ad89db8737c680b9cc',1,'Mdp::NaiveQLambda']]],
   ['name',['Name',['../classtinyxml2_1_1XMLAttribute.html#a8124fbfd27f57150cc68d8a9207078c3',1,'tinyxml2::XMLAttribute::Name()'],['../classtinyxml2_1_1XMLElement.html#a8bff355472bce2c60d4b50a212bf7f5f',1,'tinyxml2::XMLElement::Name()'],['../classTiXmlAttribute.html#a298a57287d305904ba6bd96ae6f78d3d',1,'TiXmlAttribute::Name()']]],
   ['nametstr',['NameTStr',['../classTiXmlAttribute.html#a64cee17bceb8232eb0736d26dd082d79',1,'TiXmlAttribute']]],
-  ['neuralnetwork',['NeuralNetwork',['../classMdp_1_1NeuralNetwork.html#a1bbcd208b8f1cbfc026ecafe41ffbac2',1,'Mdp::NeuralNetwork']]],
-  ['neuroq',['NeuroQ',['../classMdp_1_1NeuroQ.html#a38c48d7bf11e07f367496b37b97f55dc',1,'Mdp::NeuroQ']]],
   ['newcomment',['NewComment',['../classtinyxml2_1_1XMLDocument.html#a386df0befd06aadb5e0cd21381aa955a',1,'tinyxml2::XMLDocument']]],
   ['newdeclaration',['NewDeclaration',['../classtinyxml2_1_1XMLDocument.html#ae519030c0262fa2daff8993681990e16',1,'tinyxml2::XMLDocument']]],
   ['newelement',['NewElement',['../classtinyxml2_1_1XMLDocument.html#a3c335a700a43d7c363a393142a23f234',1,'tinyxml2::XMLDocument']]],
@@ -19,6 +17,6 @@ var searchData=
   ['nochildren',['NoChildren',['../classtinyxml2_1_1XMLNode.html#a96afe34a9ccd0ed4c0cff32beb42cc6c',1,'tinyxml2::XMLNode::NoChildren()'],['../classTiXmlNode.html#aeed21ad30630ef6e7faf096127edc9f3',1,'TiXmlNode::NoChildren()']]],
   ['node',['Node',['../classTiXmlHandle.html#ab44b723a8dc9af72838a303c079d0376',1,'TiXmlHandle']]],
   ['nolearning',['NoLearning',['../classMdp_1_1NoLearning.html#a98d911443ccee2d2821b622b55abcff1',1,'Mdp::NoLearning']]],
-  ['notifyupdateneeded',['notifyUpdateNeeded',['../classMdp_1_1NeuroQ.html#a3fb402642846c89505221e8d4eab4bd7',1,'Mdp::NeuroQ::notifyUpdateNeeded()'],['../classMdp_1_1RlBackupAlgorithm.html#aa339e4826ad58246657f9192b53c31ca',1,'Mdp::RlBackupAlgorithm::notifyUpdateNeeded()']]],
+  ['notifyupdateneeded',['notifyUpdateNeeded',['../classMdp_1_1RlBackupAlgorithm.html#aa339e4826ad58246657f9192b53c31ca',1,'Mdp::RlBackupAlgorithm']]],
   ['nulllineendings',['NullLineEndings',['../xmltest_8cpp.html#ae2b20b519a09f204f4579b9d3f63b158',1,'xmltest.cpp']]]
 ];
