@@ -5,23 +5,48 @@
 
 @section intro Introduction
 
-This is a scheduling simulator. It is capable of scheduling both real-time tasks and interactive tasks.
-The simulator is able to simulate the power consumption as well as the resulting temperature of the processor.
-The simulator allows for selecting the task scheduling algorithm as well as the frequency governor policy.
+This simulator is capable of scheduling both real-time tasks and interactive tasks.
+The simulator is able to model the power consumption
+as well as the resulting temperature of the processor.
+The simulator allows for selecting the task scheduling algorithm
+as well as the frequency governor policy.
 
 @subsection taskModels Task models
 
-The simulator does not schedule real tasks, but models of task behavior in terms of workload and power consumption. Let's look more closely at those models.
+The simulator does not schedule real tasks,
+but uses a model of task behavior in terms of workload and power consumption.
+Let's look more closely at those models.
 
 @subsubsection rt Real-Time tasks
 
-Real-time tasks are modelled as an infinite sequence of jobs. Jobs are spawned at a regular interval.
-Each job is defined as a set amount of work, where every job of the same task has the same amount of work. (WCET)
+Real-time tasks are modelled as an infinite sequence of jobs.
+Jobs are spawned at a regular interval.
+Each job is defined as a set amount of work,
+where every job of the same task can have the same or different (random) amount of work.
+Different random distributions can be used for the job's duration.
 
 @subsubsection interactive Interactive processes
 
-Interactive tasks are modelled as a sequence of workloads and waiting times. The waiting times model the time spent by the task waiting for user input, network, or disk access, etc.
-The duration of waiting time, as well as the amount of work of each workload segment is random, following an exponential distribution.
+Interactive tasks are modelled as a sequence of workloads and waiting times.
+The waiting times model the time spent by the task waiting for user input,
+network, or disk access, etc.
+The duration of waiting time, as well as the amount of work
+of each workload segmentis random, following an exponential distribution.
+
+@subsubsection powerModel Model of the power consumption
+
+The simulator models power consumption as the sum of static power and dynamic power.
+Static power has a fixed value and is consumed whenever the processor is turned on.
+Dynamic power depends on whichever task is running (if any)
+and the frequency it is running at.
+The simulator allows you to specify the task's power consumption relative to each other.
+For instance, task 0 has a power factor of 1.0, task 1 has a factor of 1.5, etc.
+
+@subsubsection temperatureModel Model of processor temperature
+
+The simulator provides a simple, first-order,  model for processor temperature.
+It relies on the thermal resistance and thermal capacity of the processor,
+and its instantaneous power consumption.
 
 @section install Installation
 
@@ -38,40 +63,48 @@ to run the simulator, go to the simulator/ directory and run the command:
 @section use Using the simulator
 
 @subsection firstSim My first simulation
-As a first example, let's look at a very simple real-time scheduliong problem.
-Let's consider two tasks. The first has a period of 15 and a worst-case execution time of 5.
-The second task has a period of 20 and a wcet of 6.
+As a first example, let's look at a very simple real-time scheduling problem.
+Let's consider two tasks. The first has a period of 15
+and a worst-case execution time (WCET) of 5.
+The second task has a period of 20 and a WCET of 6.
 Both tasks are assumed to be deterministic,
-so that their execution time is always equal to their wcet.
-We want to schedule this taskset under rate monotonic scheduling.
+so that their execution time is always equal to their WCET.
+We want to schedule this taskset under rate-monotonic scheduling.
 
-Let's take a look at the main function file:
+Let's take a look at the main function, in the file \c src/main.cpp:
 @include docmain.cpp
 The first step is to create a SchedulerConfiguration object,
 initialized from a configuration file.
+This allows you to specify many simulation parameters in a configuration file
+instead of havnig to hard-code them in C++.
 Then, we create a SchedulingSimulator object. This is the main object of the simulator.
-Next, we can create the tasks. The easiest way is via the createRealTimeTask with four arguments:
+Next, we can create the tasks.
+The easiest way is via the createRealTimeTask with four arguments:
 
 - The time at which the task will first be ready
 - The period at which the task repeats itself
 - The amount of work to be done. Note that this is not a time duration.
-The simulator is capable of varying frequency, so the time taken to complete a task is not fixed.
+The simulator is capable of varying frequency,
+so the time taken to complete a task is not fixed.
 But for the moment, we will keep a constant frequency, the minimum frequency of the processor.
-Therefore, we can specify the amount of work corresponding to a given time duration by multiplying the duration by the processor frequency.
+Therefore, we can specify the amount of work corresponding to a given time duration
+by multiplying the duration by the processor frequency.
 - The deadline. Let's make this equal to the period of the task.
 
-Next, we specify the time at which the processor should turn on. This value should be less than the starting time of the tasks.
+Next, we specify the time at which the processor should turn on.
+This value should be less than the starting time of the tasks.
 
 Then, the function endSimulation() is used top specify at what time the simulation should end.
 In this case, we get the value from the configuration file.
 
-finally, we start the simulation.
+Finally, we start the simulation.
 
-Once the main file written, we can build the the simulator (see above).
+Once the main file written, we can build the simulator (see above).
 We can now edit the configuration file, located in configuration/configuration.conf
 
 @include configuration.conf
-The most important field is the kind of task scheduler to use. In this case, it is rate-monotonic scheduling (rmsScheduler).
+The most important field is the kind of task scheduler to use.
+In this case, it is rate-monotonic scheduling (rmsScheduler).
 
 When executing the simulation with the -verbose option, a log is displayed:
 @include demoOutput
@@ -85,17 +118,21 @@ It also prints the task currently being executed (or about to be).
 @subsection taskgen taskset generation
 
 @subsubsection hardcoded programatically
-The first way to specify the taskset to simulate is to directly write it in C++ code, as we did in the first example.
+The first way to specify the taskset to simulate is to directly write it in C++ code,
+as we did in the first example.
 
 @subsubsection random random
 
 Another way to generate tasksets is to do it randomly.
-First, make sure to replace the createRealTimeTask lines in the main function with the following line:
+First, make sure to replace the createRealTimeTask lines in the main function
+with the following line:
 \code {.cpp}
 simulator.initializeTaskSet();
 \endcode
-To generate the taskset randomly, you will also need to set up the configuration file as follows:
-In the [taskSet] section, the tasksetSource entry should be set to random, and some values need to be specified:
+To generate the taskset randomly, you will also need to
+set up the configuration file as follows:
+In the [taskSet] section, the tasksetSource entry should be set to random,
+and some values need to be specified:
 \code
 [taskSet]
 tasksetSource = random
@@ -108,34 +145,43 @@ powerSpan = 1.0
 the utilization field lets you specify the processor utilization of the task set.
 nbOfTasks is the number of tasks.
 The simulator will then generate a taskset where tasks have random periods and wcet.
-Some other fields are required. The seed is the seed of the random generator that generates the taskset.
+Some other fields are required. The seed is the seed of the random generator
+that generates the taskset.
 This allows you to generate a different taskset by changing the seed value.
 By setting the priorities field to yes, the tasks will each have a different priority.
 This characteristic is used by some scheduling algorithms.
-Finally, powerSpan lets you specify the span of instantaneous power consumption of the different tasks (more on that later).
+Finally, powerSpan lets you specify the span of instantaneous power consumption
+of the different tasks (more on that later).
 
 
 @subsubsection xml XML
 
-Tasksets can also be specified via a configuration file. This allows tasksets to be changed without having to recompile the simulator.
+Tasksets can also be specified via a configuration file.
+This allows tasksets to be changed without having to recompile the simulator.
 Also, they provide a structured way to store or transfer taskset data.
 
 An example of XML taskset is in the file xml/taskset.xml
 
 @subsubsection distribution Task execution time distribution
 
-In our first example, we had deterministic tasks: their execution time was always equal to their WCET.
-It is possible to specify a random task duration, no matter what task generation process (programatically, random, xml) you use.
-In the [scheduler] section of the configuration file, specify the distribution of task duration in the 'distribution' field.
+In our first example, we had deterministic tasks:
+their execution time was always equal to their WCET.
+It is possible to specify a random task duration,
+no matter what task generation process (programatically, random, xml) you use.
+In the [scheduler] section of the configuration file,
+specify the distribution of task duration in the 'distribution' field.
 The possible values are:
 
 - \c none the task duration is deterministic and equal to its WCET
 - \c deterministic same as \c none
-- \c uniform the task diration follows a uniform random variable. The duration will be anywhere between BCET and WCET.
-- \c bernoulli \c <p> the task duration follows a Bernoulli distribution: it will be equal to WCET with probability <p> and BCET with probability 1 - <p>.
+- \c uniform the task diration follows a uniform random variable.
+The duration will be anywhere between BCET and WCET.
+- \c bernoulli \c 'p' the task duration follows a Bernoulli distribution:
+it will be equal to WCET with probability 'p' and BCET with probability 1 - 'p'.
 <p> needs to be a number between 0 and 1.
 
-For programatically generated tasksets, the BCET is specified in the \c createRealTimeTask function as an optional parameter.
+For programatically generated tasksets, the BCET is specified
+in the \c createRealTimeTask function as an optional parameter.
 See function \c Scheduler::SchedulingSimulator::createRealTimeTask()
 
 For random-generated tasksets, random duration is not yet fully supported.
@@ -157,11 +203,15 @@ The built-in scheduling disciplines are:
 To create a new scheduling algorithm, the following steps should be taken:
 
 - Create a new class for your discipline.
-Ideally, the files should be located in the folder src/scheduler/discipline and consist of a .h and a .cpp file.
+Ideally, the files should be located in the folder src/scheduler/discipline
+and consist of a .h and a .cpp file.
 - Your class should have a public member variable named configKey, of type std::string.
-This is the unique name by which you will refer to your discipline in the \c discipline field of the \c [scheduler] section in the configuration file.
-- Your class should extend the SchedulingDiscipline interface. See definition in file src/scheduler/discipline/schedulingDiscipline.h.
-- Add your files to the src/scheduler/discipline/CMakeLists.txt file to include them in the build.
+This is the unique name by which you will refer to your discipline
+in the \c discipline field of the \c [scheduler] section in the configuration file.
+- Your class should extend the SchedulingDiscipline interface.
+See definition in file src/scheduler/discipline/schedulingDiscipline.h.
+- Add your files to the src/scheduler/discipline/CMakeLists.txt file
+to include them in the build.
 - Edit the function \c SchedulerConfiguration::getDisciplineFromFile()
 in the file src/scheduler/schedulerConfiguration.cpp
 in order to allow your new discipline to be selected at the configuration file level.
@@ -214,11 +264,11 @@ This simulator is a discrete-events simulator. Currently, it reacts to the follo
 - \c StopSimulation The simulation ends
 - \c TimeOut A periodic timer fires. This is an abstract class.
 The simulator currently implements the following kinds of TimeOut events:
--- \c SchedTimeOut A periodic event that can be used for scheduling
--- \c StatsTick ...
--- \c UsageUpdate ...
--- \c FreqUpdate ...
--- \c DummyEvent ...
+	- \c SchedTimeOut A periodic event that can be used for scheduling
+	- \c StatsTick ...
+	- \c UsageUpdate ...
+	- \c FreqUpdate ...
+	- \c DummyEvent ...
 
 */
 
