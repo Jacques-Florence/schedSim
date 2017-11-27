@@ -178,7 +178,7 @@ The possible values are:
 The duration will be anywhere between BCET and WCET.
 - \c bernoulli \c 'p' the task duration follows a Bernoulli distribution:
 it will be equal to WCET with probability 'p' and BCET with probability 1 - 'p'.
-<p> needs to be a number between 0 and 1.
+'p' needs to be a number between 0 and 1.
 
 For programatically generated tasksets, the BCET is specified
 in the \c createRealTimeTask function as an optional parameter.

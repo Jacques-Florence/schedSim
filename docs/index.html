@@ -165,9 +165,8 @@ Task execution time distribution</h3>
 <li><code>none</code> the task duration is deterministic and equal to its WCET</li>
 <li><code>deterministic</code> same as <code>none</code> </li>
 <li><code>uniform</code> the task diration follows a uniform random variable. The duration will be anywhere between BCET and WCET.</li>
-<li><code>bernoulli</code> <code>'p'</code> the task duration follows a Bernoulli distribution: it will be equal to WCET with probability 'p' and BCET with probability 1 - 'p'. </li>
+<li><code>bernoulli</code> <code>'p'</code> the task duration follows a Bernoulli distribution: it will be equal to WCET with probability 'p' and BCET with probability 1 - 'p'. 'p' needs to be a number between 0 and 1.</li>
 </ul>
-<p>needs to be a number between 0 and 1.</p>
 <p>For programatically generated tasksets, the BCET is specified in the <code>createRealTimeTask</code> function as an optional parameter. See function <code><a class="el" href="classScheduler_1_1SchedulingSimulator.html#a74942c01db4b56caec3c0676ee49c507" title="creates a new real-time task event and add it to the event scheduling queue ">Scheduler::SchedulingSimulator::createRealTimeTask()</a></code> </p>
 <p>For random-generated tasksets, random duration is not yet fully supported.</p>
 <h2><a class="anchor" id="disciplines"></a>
@@ -233,7 +232,7 @@ Events</h2>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 26 2017 16:50:11 for Scheduler by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 26 2017 17:01:38 for Scheduler by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>
