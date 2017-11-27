@@ -95,8 +95,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li class="level3"><a href="#distribution">Task execution time distribution</a></li>
 </ul>
 </li>
-<li class="level2"><a href="#disciplines">Scheduling disciplines</a></li>
+<li class="level2"><a href="#disciplines">Scheduling disciplines</a><ul><li class="level3"><a href="#rlDiscipline">Reinforcement learning scheduling discipline</a></li>
+</ul>
+</li>
 <li class="level2"><a href="#reports">Reports</a></li>
+<li class="level2"><a href="#events">Events</a></li>
 </ul>
 </li>
 </ul>
@@ -164,14 +167,61 @@ Task execution time distribution</h3>
 <p>For random-generated tasksets, random duration is not yet fully supported.</p>
 <h2><a class="anchor" id="disciplines"></a>
 Scheduling disciplines</h2>
+<p>The simulator comes with several scheduling disciplines availables, and allows you to easily add additional algorithms.</p>
+<p>The built-in scheduling disciplines are:</p>
+<ul>
+<li><code>rmsDiscipline</code> Rate monotonic scheduling</li>
+<li><code>edfDiscipline</code> Earliest deadline first</li>
+<li><code>fixedPriorityDiscipline</code> Fixed priority</li>
+<li><code>fcfsDiscipline</code> First come first serve</li>
+<li><code>roundRobinDiscipline</code> Round robin</li>
+<li><code>rlDiscipline</code> Reinforcement learning (more on that later)</li>
+</ul>
+<p>To create a new scheduling algorithm, the following steps should be taken:</p>
+<ul>
+<li>Create a new class for your discipline. Ideally, the files should be located in the folder src/scheduler/discipline and consist of a .h and a .cpp file.</li>
+<li>Your class should have a public member variable named configKey, of type std::string. This is the unique name by which you will refer to your discipline in the <code>discipline</code> field of the <code></code>[scheduler] section in the configuration file.</li>
+<li>Your class should extend the SchedulingDiscipline interface. See definition in file <a class="el" href="schedulingDiscipline_8h.html">src/scheduler/discipline/schedulingDiscipline.h</a>.</li>
+<li>Add your files to the <a class="el" href="scheduler_2discipline_2CMakeLists_8txt.html">src/scheduler/discipline/CMakeLists.txt</a> file to include them in the build.</li>
+<li>Edit the function <code>SchedulerConfiguration::getDisciplineFromFile()</code> in the file <a class="el" href="schedulerConfiguration_8cpp.html">src/scheduler/schedulerConfiguration.cpp</a> in order to allow your new discipline to be selected at the configuration file level. Just follow the logic of the other disciplines. You will also need to #include your header file in that file.</li>
+</ul>
+<p>Now, after building the simulator, you should be able to use your new algorithm just like any other scheduling discipline of the simulator.</p>
+<p>Let's focus a bit on the interface functions you will need to implement:</p>
+<ul>
+<li><code>getName()</code> This should return a name for your scheduling algorithm. It is mainly used for logging and reporting purposes.</li>
+<li><code>preempts()</code> Given an event, this function should return true if your algorithm is supposed to preempt the currently running task when that event occurs.</li>
+<li><code>selectNextTask()</code> This is the main function of your class. It should return which task of the ready queue should be run from this point on. It can also return <code>nullptr</code> to signify that the processor should be idle until the next event.</li>
+</ul>
+<h3><a class="anchor" id="rlDiscipline"></a>
+Reinforcement learning scheduling discipline</h3>
 <p>to be continued...</p>
 <h2><a class="anchor" id="reports"></a>
 Reports</h2>
-<p>to be continued... </p>
+<p>The simulator can save to file several reports, such as:</p>
+<ul>
+<li>Deadline misses: The report will contain timestamp of each deadline, along with which task missed its deadline.</li>
+<li>Temperature: The report will contain the temperature of the processor at the time of each scheduler invocation (along with its timestamp). Additionally, you can record temperature at a finer-grained interval by getting a special event to be triggered.</li>
+<li>Aging</li>
+</ul>
+<p>to be continued...</p>
+<h2><a class="anchor" id="events"></a>
+Events</h2>
+<p>This simulator is a discrete-events simulator. Currently, it reacts to the following events:</p>
+<ul>
+<li><code>StartProc</code> The processor turns on</li>
+<li><code>NewInteractiveProcess</code> A new interactive process starts</li>
+<li><code>NewJob</code> A real-time task starts a new job</li>
+<li><code>Ready</code> A process becomes ready</li>
+<li><code>Waiting</code> An interactive process stops execution to wait on a resource</li>
+<li><code>Terminates</code> A job or interactive process finishes</li>
+<li><code>MissedDeadline</code> A job misses its deadline</li>
+<li><code>StopSimulation</code> The simulation ends</li>
+<li><code>TimeOut</code> A periodic timer fires. This is an abstract class. The simulator currently implements the following kinds of TimeOut events: &ndash; <code>SchedTimeOut</code> A periodic event that can be used for scheduling &ndash; <code>StatsTick</code> ... &ndash; <code>UsageUpdate</code> ... &ndash; <code>FreqUpdate</code> ... &ndash; <code>DummyEvent</code> ... </li>
+</ul>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 24 2017 15:45:28 for Scheduler by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 26 2017 16:18:48 for Scheduler by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11
 </small></address>
