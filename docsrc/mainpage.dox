@@ -142,9 +142,88 @@ For random-generated tasksets, random duration is not yet fully supported.
 
 @subsection disciplines Scheduling disciplines
 
+The simulator comes with several scheduling disciplines availables,
+and allows you to easily add additional algorithms.
+
+The built-in scheduling disciplines are:
+
+- \c rmsDiscipline Rate monotonic scheduling
+- \c edfDiscipline Earliest deadline first
+- \c fixedPriorityDiscipline Fixed priority
+- \c fcfsDiscipline First come first serve
+- \c roundRobinDiscipline Round robin
+- \c rlDiscipline Reinforcement learning (more on that later)
+
+To create a new scheduling algorithm, the following steps should be taken:
+
+- Create a new class for your discipline.
+Ideally, the files should be located in the folder src/scheduler/discipline and consist of a .h and a .cpp file.
+- Your class should have a public member variable named configKey, of type std::string.
+This is the unique name by which you will refer to your discipline in the \c discipline field of the \c [scheduler] section in the configuration file.
+- Your class should extend the SchedulingDiscipline interface. See definition in file src/scheduler/discipline/schedulingDiscipline.h.
+- Add your files to the src/scheduler/discipline/CMakeLists.txt file to include them in the build.
+- Edit the function \c SchedulerConfiguration::getDisciplineFromFile()
+in the file src/scheduler/schedulerConfiguration.cpp
+in order to allow your new discipline to be selected at the configuration file level.
+Just follow the logic of the other disciplines.
+You will also need to #include your header file in that file.
+
+Now, after building the simulator, you should be able to use your new algorithm
+just like any other scheduling discipline of the simulator.
+
+Let's focus a bit on the interface functions you will need to implement:
+
+- \c getName() This should return a name for your scheduling algorithm.
+It is mainly used for logging and reporting purposes.
+- \c preempts() Given an event, this function should return true if your algorithm
+is supposed to preempt the currently running task when that event occurs.
+- \c selectNextTask() This is the main function of your class.
+It should return which task of the ready queue should be run from this point on.
+It can also return \c nullptr to signify that the processor
+should be idle until the next event.
+
+@subsubsection rlDiscipline Reinforcement learning scheduling discipline
+
 to be continued...
 
 @subsection reports Reports
 
+The simulator can save to file several reports, such as:
+
+- Deadline misses: The report will contain timestamp of each deadline,
+along with which task missed its deadline.
+- Temperature: The report will contain the temperature of the processor
+at the time of each scheduler invocation (along with its timestamp).
+Additionally, you can record temperature at a finer-grained interval
+by getting a special event to be triggered.
+- Aging
+
 to be continued...
+
+@subsection events Events
+
+This simulator is a discrete-events simulator. Currently, it reacts to the following events:
+
+- \c StartProc The processor turns on
+- \c NewInteractiveProcess A new interactive process starts
+- \c NewJob A real-time task starts a new job
+- \c Ready A process becomes ready
+- \c Waiting An interactive process stops execution to wait on a resource
+- \c Terminates A job or interactive process finishes
+- \c MissedDeadline A job misses its deadline
+- \c StopSimulation The simulation ends
+- \c TimeOut A periodic timer fires. This is an abstract class.
+The simulator currently implements the following kinds of TimeOut events:
+-- \c SchedTimeOut A periodic event that can be used for scheduling
+-- \c StatsTick ...
+-- \c UsageUpdate ...
+-- \c FreqUpdate ...
+-- \c DummyEvent ...
+
 */
+
+
+
+
+
+
